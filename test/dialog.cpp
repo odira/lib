@@ -11,9 +11,9 @@
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
 {
-//    VyborgNavigationButtonBox *m_navigationBB = new VyborgNavigationButtonBox;
-//    m_navigationBB->setCount(10);
-//    m_navigationBB->setCurrentIndex(5);
+    VyborgNavigationButtonBox *m_navigationBB = new VyborgNavigationButtonBox;
+    m_navigationBB->setCount(10);
+    m_navigationBB->setCurrentIndex(5);
 
     VyborgYearMonthWidget *yearMonthWidget = new VyborgYearMonthWidget("2014", "Fe");
 
@@ -36,7 +36,7 @@ Dialog::Dialog(QWidget *parent)
 
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-//    mainLayout->addLayout(m_navigationBB);
+    mainLayout->addLayout(m_navigationBB);
     mainLayout->addLayout(hLayout);
     mainLayout->addWidget(controlButtonBox);
     mainLayout->addWidget(mapperControlButtonBox);

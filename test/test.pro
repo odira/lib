@@ -8,18 +8,18 @@ INCLUDEPATH += ../lib/src
 
 SOURCES += main.cpp \
     dialog.cpp \
-    ../lib/src/navigationbuttonbox.cpp \
-    ../lib/src/yearmonth.cpp \
-    ../lib/src/yearmonthwidget.cpp \
-    ../lib/src/maindialogcontrolbuttonbox.cpp \
-    ../lib/src/mappercontrolbuttonbox.cpp \
-    ../lib/src/mapperdialog.cpp
+    ../src/navigationbuttonbox.cpp \
+    ../src/yearmonth.cpp \
+    ../src/yearmonthwidget.cpp \
+    ../src/maindialogcontrolbuttonbox.cpp \
+    ../src/mappercontrolbuttonbox.cpp \
+    ../src/mapperdialog.cpp
 
 HEADERS  += \
     dialog.h \
-    ../lib/src/navigationbuttonbox.h \
-    ../lib/src/yearmonth.h \
-    ../lib/src/yearmonthwidget.h \
-    ../lib/src/maindialogcontrolbuttonbox.h \
-    ../lib/src/mappercontrolbuttonbox.h \
-    ../lib/src/mapperdialog.h
+    ../src/navigationbuttonbox.h \
+    ../src/yearmonth.h \
+    ../src/yearmonthwidget.h \
+    ../src/maindialogcontrolbuttonbox.h \
+    ../src/mappercontrolbuttonbox.h \
+    ../src/mapperdialog.h
