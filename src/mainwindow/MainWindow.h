@@ -15,7 +15,7 @@ class VyborgSortDialog;
 class VyborgAboutDialog;
 class VyborgMainDialogControlButtonBox;
 
-class VyborgMonthCalendarNavigationToolbar;
+//class VyborgMonthCalendarNavigationToolbar;
 
 class VyborgMainWindow : public QMainWindow
 {
@@ -53,7 +53,7 @@ public:
     VyborgAboutDialog *aboutDialog_;
     VyborgMainDialogControlButtonBox *m_controlButtonBox;
 
-    VyborgMonthCalendarNavigationToolbar *m_monthCalNavToolBar;
+//    VyborgMonthCalendarNavigationToolbar *m_monthCalNavToolBar;
 };
 
 #endif // VYBORGMAINWINDOW_H

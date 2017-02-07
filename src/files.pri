@@ -17,7 +17,7 @@ SOURCES += \
     $$PWD/nodewidget.cpp \
     $$PWD/dialogs/chartsdialog/chartsdialog.cpp \
     $$PWD/DateSelect.cpp \
-    $$PWD/mainwindow/MonthCalendarNavigationToolBar.cpp \
+#    $$PWD/mainwindow/MonthCalendarNavigationToolBar.cpp \
     $$PWD/mainwindow/MainWindow.cpp
 
 HEADERS += \
@@ -42,6 +42,6 @@ HEADERS += \
     $$PWD/nodewidget.h \
     $$PWD/dialogs/chartsdialog/chartsdialog.h \
     $$PWD/DateSelect.h \
-    $$PWD/mainwindow/MonthCalendarNavigationToolBar.h \
+#    $$PWD/mainwindow/MonthCalendarNavigationToolBar.h \
     $$PWD/mainwindow/MainWindow.h
 

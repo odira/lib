@@ -9,5 +9,7 @@
         <file alias="arrow-last">images/arrow-last.png</file>
         <file alias="arror-left">images/arrow-left.png</file>
         <file alias="arror-right">images/arrow-right.png</file>
+        <file alias="next">images/mac/next.png</file>
+        <file alias="previous">images/mac/previous.png</file>
     </qresource>
 </RCC>

@@ -8,7 +8,7 @@
 #include "../sortdialog.h"
 #include "../aboutdialog.h"
 
-#include "MonthCalendarNavigationToolbar.h"
+//#include "MonthCalendarNavigationToolbar.h"
 
 #include <QDebug>
 
@@ -49,8 +49,8 @@ VyborgMainWindow::VyborgMainWindow(QWidget *parent)
     centralWidget->setLayout(mainLayout);
     this->setCentralWidget(centralWidget);
 
-    m_monthCalNavToolBar = new VyborgMonthCalendarNavigationToolbar;
-    addToolBar(m_monthCalNavToolBar);
+//    m_monthCalNavToolBar = new VyborgMonthCalendarNavigationToolbar;
+//    addToolBar(m_monthCalNavToolBar);
 
     connect(m_view, SIGNAL(doubleClicked(QModelIndex)),
             SLOT(showMapperDialog()));
