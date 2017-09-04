@@ -3,11 +3,9 @@
 
 #include "filterdialog.h"
 
-VyborgFilterDialog::VyborgFilterDialog(QSqlTableModel *model, QWidget *parent)
+VyborgFilterDialog::VyborgFilterDialog(QWidget *parent)
     : QDialog(parent)
 {
-    m_model = model;
-
     caseSensitivityCheckBox = new QCheckBox(trUtf8("Case sensitive filtering"));
 
     patternLineEdit = new QLineEdit;
@@ -59,6 +57,11 @@ VyborgFilterDialog::VyborgFilterDialog(QSqlTableModel *model, QWidget *parent)
     mainLayout->addLayout(buttonLayout);
 
     setLayout(mainLayout);
+}
+
+void VyborgFilterDialog::setModel(QSqlTableModel *model)
+{
+    m_model = model;
 }
 
 /**

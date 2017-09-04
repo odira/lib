@@ -1,6 +1,5 @@
 SOURCES += \
     $$PWD/libvyborg.cpp \
-    $$PWD/aboutdialog.cpp \
     $$PWD/filterdialog.cpp \
     $$PWD/maindialog.cpp \
     $$PWD/maindialogcontrolbuttonbox.cpp \
@@ -14,17 +13,18 @@ SOURCES += \
     $$PWD/convert.cpp \
     $$PWD/rwwidget.cpp \
     $$PWD/doublespinboxdelegate.cpp \
-    $$PWD/nodewidget.cpp \
+#    $$PWD/nodewidget.cpp \
     $$PWD/dialogs/chartsdialog/chartsdialog.cpp \
     $$PWD/DateSelect.cpp \
 #    $$PWD/mainwindow/MonthCalendarNavigationToolBar.cpp \
-    $$PWD/mainwindow/MainWindow.cpp
+    $$PWD/mainwindow/MainWindow.cpp \
+    $$PWD/widgets/PersonWidget/PersonWidget.cpp \
+    $$PWD/dialogs/AboutDialog/AboutDialog.cpp
 
 HEADERS += \
     $$PWD/libvyborg.h\
     $$PWD/libvyborg_global.h \
     $$PWD/vyborg.h \
-    $$PWD/aboutdialog.h \
     $$PWD/connection.h \
     $$PWD/filterdialog.h \
     $$PWD/maindialog.h \
@@ -39,9 +39,11 @@ HEADERS += \
     $$PWD/convert.h \
     $$PWD/rwwidget.h \
     $$PWD/doublespinboxdelegate.h \
-    $$PWD/nodewidget.h \
+#    $$PWD/nodewidget.h \
     $$PWD/dialogs/chartsdialog/chartsdialog.h \
     $$PWD/DateSelect.h \
 #    $$PWD/mainwindow/MonthCalendarNavigationToolBar.h \
-    $$PWD/mainwindow/MainWindow.h
+    $$PWD/mainwindow/MainWindow.h \
+    $$PWD/widgets/PersonWidget/PersonWidget.h \
+    $$PWD/dialogs/AboutDialog/AboutDialog.h
 

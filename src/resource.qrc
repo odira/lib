@@ -1,15 +1,1 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="last-icon">images/Button-Last-icon.png</file>
-        <file alias="next-icon">images/Button-Next-icon.png</file>
-        <file alias="previous-icon">images/Button-Previous-icon.png</file>
-        <file alias="first-icon">images/Button-First-icon.png</file>
-        <file alias="rightArrow">images/RightArrow.png</file>
-        <file alias="arrow-first">images/arrow-first.png</file>
-        <file alias="arrow-last">images/arrow-last.png</file>
-        <file alias="arror-left">images/arrow-left.png</file>
-        <file alias="arror-right">images/arrow-right.png</file>
-        <file alias="next">images/mac/next.png</file>
-        <file alias="previous">images/mac/previous.png</file>
-    </qresource>
-</RCC>
+<RCC/>

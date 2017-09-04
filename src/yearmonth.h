@@ -1,15 +1,13 @@
 #ifndef VYBORGYEARMONTH_H
 #define VYBORGYEARMONTH_H
 
-
 #include <QPainter>
 #include <QString>
-
 
 class VyborgYearMonth
 {
 public:
-VyborgYearMonth(QString year = "", QString month = "");
+    VyborgYearMonth(QString year = "", QString month = "");
 
     void paint(QPainter *painter, const QRect &rect);
     QSize sizeHint() const;

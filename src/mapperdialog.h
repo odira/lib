@@ -23,7 +23,7 @@ public:
     QVBoxLayout* layout();
 
     enum State { Normal, Edit, Add };
-    Q_ENUM(State)
+    Q_ENUM( State )
     void setState(State state);
     State state() const;
 
@@ -44,17 +44,16 @@ private slots:
 private:
     void updateControlWidgets();
 
-private:
-    // visual elements
+private: // widgets
     VyborgMapperControlButtonBox *m_controlButtonBox;
     VyborgNavigationButtonBox *m_navButtonBox;
     QVBoxLayout *m_privateWidgetsLayout;
 
-    // non-visual Qt elements
+private: // non-visual Qt elements
     QSqlTableModel *m_model;
     QDataWidgetMapper *m_mapper;
 
-    // non-visual elements;
+private: // non-visual variables
     State m_state;
 };
 

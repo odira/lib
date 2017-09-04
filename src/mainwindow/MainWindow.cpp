@@ -6,7 +6,7 @@
 #include "../mapperdialog.h"
 #include "../filterdialog.h"
 #include "../sortdialog.h"
-#include "../aboutdialog.h"
+#include "../dialogs/AboutDialog/AboutDialog.h"
 
 //#include "MonthCalendarNavigationToolbar.h"
 
@@ -28,7 +28,7 @@ VyborgMainWindow::VyborgMainWindow(QWidget *parent)
     m_view->setFocus();
 
 
-    filterDialog_ = new VyborgFilterDialog(m_model);
+    filterDialog_ = new VyborgFilterDialog();
     filterDialog_->setWindowTitle(trUtf8("Filter Dialog"));
 
     sortDialog_ = new VyborgSortDialog(m_model);
@@ -68,11 +68,6 @@ VyborgMainWindow::VyborgMainWindow(QWidget *parent)
             SLOT(about()));
     connect(m_controlButtonBox, SIGNAL(close()),
             qApp, SLOT(quit()));
-}
-
-void VyborgMainWindow::setTitle(const QString &title)
-{
-    setWindowTitle(title);
 }
 
 QPushButton* VyborgMainWindow::addButton(const QString &text)
@@ -130,15 +125,10 @@ void VyborgMainWindow::showMapperDialog()
 {
     QModelIndex indx = m_view->currentIndex();
     int curRow = indx.row();
-
     m_mapperDialog->setCurrentRow(curRow);
-//    m_mapperDialog->exec();
+
+    m_mapperDialog->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_mapperDialog->show();
-
-
-//    m_view->update();
-//    m_view->updateGeometry();
-//    m_view->selectRow(qMin(row, m_model->rowCount()));
 }
 
 void VyborgMainWindow::showFilterDialog()

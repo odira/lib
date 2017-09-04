@@ -15,10 +15,31 @@ VyborgMapperDialog::VyborgMapperDialog(QSqlTableModel *model, QWidget *parent)
     m_mapper->setModel(m_model);
     m_mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 
+
     m_controlButtonBox = new VyborgMapperControlButtonBox;
     m_controlButtonBox->setOrientation(Qt::Vertical);
 
+    connect(m_controlButtonBox, SIGNAL(edit()),
+            SLOT(edit()));
+    connect(m_controlButtonBox, SIGNAL(submit()),
+            SLOT(submit()));
+    connect(m_controlButtonBox, SIGNAL(revert()),
+            SLOT(revert()));
+    connect(m_controlButtonBox, SIGNAL(close()),
+            SLOT(close()));
+
+
     m_navButtonBox = new VyborgNavigationButtonBox;
+
+    connect(m_navButtonBox, SIGNAL(goFirst()),
+            m_mapper, SLOT(toFirst()));
+    connect(m_navButtonBox, SIGNAL(goPrevious()),
+            m_mapper, SLOT(toPrevious()));
+    connect(m_navButtonBox, SIGNAL(goNext()),
+            m_mapper, SLOT(toNext()));
+    connect(m_navButtonBox, SIGNAL(goLast()),
+            m_mapper, SLOT(toLast()));
+
 
     m_privateWidgetsLayout = new QVBoxLayout;
 
@@ -31,25 +52,6 @@ VyborgMapperDialog::VyborgMapperDialog(QSqlTableModel *model, QWidget *parent)
     mainLayout->addWidget(m_controlButtonBox);
 
     setLayout(mainLayout);
-
-
-    connect(m_navButtonBox, SIGNAL(goFirst()),
-            m_mapper, SLOT(toFirst()));
-    connect(m_navButtonBox, SIGNAL(goPrevious()),
-            m_mapper, SLOT(toPrevious()));
-    connect(m_navButtonBox, SIGNAL(goNext()),
-            m_mapper, SLOT(toNext()));
-    connect(m_navButtonBox, SIGNAL(goLast()),
-            m_mapper, SLOT(toLast()));
-
-    connect(m_controlButtonBox, SIGNAL(edit()),
-            SLOT(edit()));
-    connect(m_controlButtonBox, SIGNAL(submit()),
-            SLOT(submit()));
-    connect(m_controlButtonBox, SIGNAL(revert()),
-            SLOT(revert()));
-    connect(m_controlButtonBox, SIGNAL(close()),
-            SLOT(close()));
 
 //    connect(m_mapper, SIGNAL(currentIndexChanged(int)),
 //            this, SLOT(setCurrentRow(int)));
@@ -89,7 +91,7 @@ void VyborgMapperDialog::submit()
     if (m_mapper->submit() == true) {
         m_model->database().transaction();
         if (m_model->submitAll()) {
-            m_model->database().commit();
+            bool ret = m_model->database().commit();
         } else {
             m_model->revertAll();
             m_model->database().rollback();
@@ -98,10 +100,9 @@ void VyborgMapperDialog::submit()
                                  trUtf8("The database reported an error:\n%1").arg(m_model->lastError().text()));
         }
     } else {
-        qDebug() << "The mapper reported an error" << m_model->lastError().text();
-//        QMessageBox::warning(this,
-//                             trUtf8("Submit to mapper"),
-//                             trUtf8("The mapper reported an error: %!").arg(m_model->lastError().text()));
+        QMessageBox::warning(this,
+                             trUtf8("Submit to mapper"),
+                             trUtf8("The mapper reported an error: %!").arg(m_model->lastError().text()));
     }
 
 //    qDebug() << "OK";
@@ -113,6 +114,7 @@ void VyborgMapperDialog::submit()
 //    m_model->submitAll();
 //    m_model->database().commit();
 
+//    qDebug() << "OK";
 //    if (!m_model->submitAll())
 //        qDebug() << m_model->lastError().text();
 

@@ -1,7 +1,7 @@
 #include <QtWidgets>
 #include <QtSql>
 
-#include "nodewidget.h"
+#include "NodeWidget.h"
 
 NodeWidget::NodeWidget(QWidget *parent)
     : QWidget(parent),
@@ -261,3 +261,4 @@ void NodeWidget::update()
     m_latLineEdit->setCursorPosition(0);
 //    m_latLineEdit->setFocus();
 }
+

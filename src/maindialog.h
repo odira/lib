@@ -27,11 +27,11 @@ public:
     QPushButton* addButton(const QString &text);
 
 protected:
-    virtual void setupModel()        = 0;
-    virtual void setupView()         = 0;
+    virtual void setupModel() = 0;
+    virtual void setupView() = 0;
     virtual void setupMapperDialog() = 0;
     virtual void setupFilterDialog() = 0;
-    virtual void setupSortDialog()   = 0;
+    virtual void setupSortDialog() = 0;
 
 private slots:
     void add();

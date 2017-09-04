@@ -25,7 +25,6 @@ class VyborgMainWindow : public QMainWindow
 public:
     explicit VyborgMainWindow(QWidget *parent = 0);
 
-    void setTitle(const QString &title);
     QPushButton* addButton(const QString &text);
 
 protected:

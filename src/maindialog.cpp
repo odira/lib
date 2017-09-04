@@ -3,18 +3,18 @@
 
 #include "maindialog.h"
 #include "maindialogcontrolbuttonbox.h"
+
+// Dialogs
 #include "mapperdialog.h"
 #include "filterdialog.h"
 #include "sortdialog.h"
-#include "aboutdialog.h"
-
-#include <QDebug>
+#include "dialogs/AboutDialog/AboutDialog.h"
 
 VyborgMainDialog::VyborgMainDialog(QWidget *parent)
     : QDialog(parent)
 {
-    m_model = new QSqlTableModel(this);
-    m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+//    m_model = new QSqlTableModel(this);
+//    m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     m_view = new QTableView(this);
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -26,7 +26,7 @@ VyborgMainDialog::VyborgMainDialog(QWidget *parent)
     m_view->setFocus();
 
 
-    filterDialog_ = new VyborgFilterDialog(m_model);
+    filterDialog_ = new VyborgFilterDialog();
     filterDialog_->setWindowTitle(trUtf8("Filter Dialog"));
 
     sortDialog_ = new VyborgSortDialog(m_model);
@@ -104,11 +104,12 @@ void VyborgMainDialog::remove()
     msgBox.setDefaultButton(QMessageBox::No);
     int ret = msgBox.exec();
     if (ret == QMessageBox::Yes) {
-        m_model->removeRow(modelRow);
-
+        bool ret = m_model->removeRow(modelRow);
+        qDebug() << "DELETING" << ret << modelRow << viewRow;
         m_model->database().transaction();
         if (m_model->submitAll()) {
             m_model->database().commit();
+            qDebug() << "COMMITING";
         } else {
             m_model->database().rollback();
             QMessageBox::warning(this,
@@ -124,29 +125,26 @@ void VyborgMainDialog::showMapperDialog()
 {
     QModelIndex indx = m_view->currentIndex();
     int curRow = indx.row();
-
     m_mapperDialog->setCurrentRow(curRow);
-//    m_mapperDialog->exec();
+
+    m_mapperDialog->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_mapperDialog->show();
-
-
-//    m_view->update();
-//    m_view->updateGeometry();
-//    m_view->selectRow(qMin(row, m_model->rowCount()));
 }
 
 void VyborgMainDialog::showFilterDialog()
 {
     int ret = filterDialog_->exec();
-    if (ret == QDialog::Accepted)
+    if (ret == QDialog::Accepted) {
         m_model->select();
+    }
 }
 
 void VyborgMainDialog::showSortDialog()
 {
     int ret = sortDialog_->exec();
-    if (ret == QDialog::Accepted)
+    if (ret == QDialog::Accepted) {
         m_model->select();
+    }
 }
 
 void VyborgMainDialog::update()

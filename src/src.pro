@@ -3,7 +3,7 @@ QT += widgets sql
 CONFIG += install
 TARGET = vyborg
 TEMPLATE = lib
-VERSION = 1.12
+VERSION = 1.15
 DEFINES += LIBVYBORG_LIBRARY
 
 OBJECTS_DIR = tmp
@@ -11,13 +11,13 @@ MOC_DIR = tmp
 
 include(files.pri)
 
-linux:DIR_PREFIX = /usr/local/
-macx:DIR_PREFIX=/usr/local/
+macx | linux:DIR_PREFIX = /usr/local/
+#macx:DIR_PREFIX=/usr/local/
 
 HEADERS_INSTALL_DIR = $$DIR_PREFIX/include/$$TARGET
 LIBS_INSTALL_DIR = $$DIR_PREFIX/lib/$$TARGET
 
-unix {
+macx | linux | unix {
     headers.extra = mkdir -p $$HEADERS_INSTALL_DIR
     headers.files = $$HEADERS
     headers.path = $$HEADERS_INSTALL_DIR
@@ -28,15 +28,15 @@ unix {
     features.path = $$QMAKESPEC
     INSTALLS += features
 
-#    endup.extra = make install
-##    endup.path = $$PWD
-#    INSTALLS += endup
-}9
+    endup.extra = make install
+#    endup.path = $$PWD
+    INSTALLS += endup
+}
 
 DESTDIR = $$LIBS_INSTALL_DIR
 
 RESOURCES += \
-    resource.qrc
+    resources.qrc
 
 OTHER_FILES += \
     vyborg.prf
