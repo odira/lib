@@ -21,7 +21,7 @@
 //#include "nodewidget.h"
 #include "navigationbuttonbox.h"
 
-#include "DateSelect.h"
+//#include "DateSelect.h"
 
 // dialogs
 //#include "dialogs/chartsdialog/chartsdialog.h"

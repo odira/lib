@@ -15,7 +15,7 @@ SOURCES += \
     $$PWD/doublespinboxdelegate.cpp \
 #    $$PWD/nodewidget.cpp \
     $$PWD/dialogs/chartsdialog/chartsdialog.cpp \
-    $$PWD/DateSelect.cpp \
+#    $$PWD/DateSelect.cpp \
 #    $$PWD/mainwindow/MonthCalendarNavigationToolBar.cpp \
     $$PWD/mainwindow/MainWindow.cpp \
     $$PWD/widgets/PersonWidget/PersonWidget.cpp \
@@ -41,7 +41,7 @@ HEADERS += \
     $$PWD/doublespinboxdelegate.h \
 #    $$PWD/nodewidget.h \
     $$PWD/dialogs/chartsdialog/chartsdialog.h \
-    $$PWD/DateSelect.h \
+#    $$PWD/DateSelect.h \
 #    $$PWD/mainwindow/MonthCalendarNavigationToolBar.h \
     $$PWD/mainwindow/MainWindow.h \
     $$PWD/widgets/PersonWidget/PersonWidget.h \
