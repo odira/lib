@@ -59,6 +59,7 @@ bool openConnection()
 
     #ifndef PGSQL_HOSTNAME
         #define PGSQL_HOSTNAME "localhost"
+//        #define PGSQL_HOSTNAME "194.1.237.79"
     #endif
 
     #ifndef PGSQL_USER
